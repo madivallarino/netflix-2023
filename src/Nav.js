@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import "./Nav.css"
+import { useNavigate } from 'react-router-dom';
 
 function Nav() {
 
     const [ show, handleShow ] = useState(false);
+    const navigation = useNavigate();
 
     const transitionNavBar = () => {
         if(window.scrollY > 100 ){
@@ -22,12 +24,14 @@ function Nav() {
     <div className={`nav ${show && 'nav__black'}`}>
         <div className="nav__contents">
             <img 
+            onClick={() => navigation('/')}
              src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png' 
              alt='' 
             className="nav__logo"
              />
 
             <img 
+            onClick={() => navigation('/profile')}
              className="nav__avatar"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt=""
